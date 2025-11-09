@@ -1,6 +1,6 @@
 # CSS Frameworks CA — Option 2 Social app
 
-## Hva
+## Introduksjon
 En enkel sosial-app-prototype laget med Bootstrap + Sass. Frontend-only demo: auth, feed, profile, opplasting av profilbilde og thumbnails. Data lagres i `localStorage`.
 
 ## Kjøre lokalt
