@@ -1,0 +1,23 @@
+@use "../../node_modules/bootstrap/scss/bootstrap" as *;
+@use "variables";
+
+body {
+  font-family: $font-family-sans-serif;
+  background-color: #f8f9fa;
+}
+
+.header-logo {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.post-thumbnail {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.container-card {
+  max-width: 720px;
+  margin: 0 auto;
+}

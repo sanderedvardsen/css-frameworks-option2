@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Profil — Social App</title>
+    <link rel="stylesheet" href="../../dist/css/main.css" />
+  </head>
+  <body class="bg-light">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../feed/index.html">Social</a>
+        <div class="d-flex">
+          <a href="../feed/index.html" class="btn btn-outline-secondary me-2">Feed</a>
+          <a id="pf-logout" href="../index.html" class="btn btn-outline-danger">Logg ut</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container my-4">
+      <div class="row g-4">
+
+        <!-- VENSTRE KOLONNE: PROFILKORT -->
+        <div class="col-12 col-md-4">
+          <div class="card text-center shadow-sm p-4">
+            <img
+              id="pf-avatar"
+              src="https://via.placeholder.com/120"
+              alt="Profilbilde"
+              class="rounded-circle mx-auto mb-3 shadow-sm"
+              width="120"
+              height="120"
+            />
+
+            <!-- avatar opplasting -->
+            <form id="avatarForm" class="mb-3" enctype="multipart/form-data">
+              <input
+                class="form-control form-control-sm"
+                type="file"
+                id="pf-avatar-input"
+                accept="image/*"
+              />
+              <div class="form-text small text-muted">
+                Last opp nytt profilbilde (lagres lokalt)
+              </div>
+            </form>
+
+            <h4 id="pf-username" class="mb-0">bruker_navn</h4>
+            <p id="pf-handle" class="text-muted mb-3">@bruker</p>
+
+            <p class="small text-secondary mb-3">
+              Frontend-entusiast 🌸 | Kaffedrikker ☕ | Elsker Bootstrap
+            </p>
+
+            <button id="follow-btn" class="btn btn-outline-primary btn-sm mb-3">
+              Følg
+            </button>
+
+            <div class="d-flex justify-content-around border-top pt-3">
+              <div>
+                <strong id="pf-followers">0</strong>
+                <div class="small text-muted">Følgere</div>
+              </div>
+              <div>
+                <strong id="pf-following">0</strong>
+                <div class="small text-muted">Følger</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HØYRE KOLONNE: INNLEGG -->
+        <div class="col-12 col-md-8">
+          <h5 class="fw-bold mb-3">Dine innlegg</h5>
+          <div id="pf-posts" class="row g-3">
+            <!-- innlegg vises her via JS -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center text-muted py-4 small">
+      &copy; 2025 Social App — CSS Frameworks CA
+    </footer>
+
+    <script src="../../dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../src/js/main.js"></script>
+  </body>
+</html>

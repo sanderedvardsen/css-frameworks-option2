@@ -1,0 +1,14 @@
+{
+  "name": "css-frameworks-option2",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sass --watch --load-path=node_modules src/scss:dist/css",
+    "build": "sass --no-source-map --load-path=node_modules src/scss:dist/css --style=compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.0"
+  }
+}

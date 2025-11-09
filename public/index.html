@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Auth — Social (Option 2)</title>
+  <link rel="stylesheet" href="../dist/css/main.css" />
+</head>
+<body class="d-flex align-items-center min-vh-100 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <main class="col-12 col-md-8 col-lg-5">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h1 class="h3 mb-3 text-center">Logg inn / Registrer</h1>
+
+            <ul class="nav nav-tabs mb-3" id="authTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button">Logg inn</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button">Registrer</button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="login" role="tabpanel">
+                <form id="loginForm" action="#" method="post" novalidate>
+                  <div class="mb-3">
+                    <label for="loginEmail" class="form-label">E-post</label>
+                    <input type="email" class="form-control" id="loginEmail" name="email" required>
+                    <div class="invalid-feedback">Vennligst oppgi en gyldig e-post.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Passord</label>
+                    <input type="password" class="form-control" id="loginPassword" name="password" required minlength="8">
+                    <div class="invalid-feedback">Passord må være minst 8 tegn.</div>
+                  </div>
+                  <button class="btn btn-primary w-100" type="submit">Logg inn</button>
+                </form>
+              </div>
+
+              <!-- Registrer-tab -->
+              <div class="tab-pane fade" id="register" role="tabpanel">
+                <form id="registerForm" action="/profile" method="post" enctype="multipart/form-data" novalidate>
+                  <div class="mb-3">
+                    <label for="regUsername" class="form-label">Brukernavn</label>
+                    <input type="text" class="form-control" id="regUsername" name="username" required>
+                    <div class="invalid-feedback">Skriv inn brukernavn.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="regEmail" class="form-label">E-post</label>
+                    <input type="email" class="form-control" id="regEmail" name="email" required>
+                    <div class="invalid-feedback">Vennligst oppgi en gyldig e-post.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="regPassword" class="form-label">Passord</label>
+                    <input type="password" class="form-control" id="regPassword" name="password" required minlength="8">
+                    <div class="invalid-feedback">Passord må være minst 8 tegn.</div>
+                  </div>
+
+                  <!-- avatar-opplasting -->
+                  <div class="mb-3">
+                    <label for="regAvatar" class="form-label">Profilbilde (valgfritt)</label>
+                    <input class="form-control" type="file" id="regAvatar" name="avatar" accept="image/*">
+                    <div class="form-text">Velg et lite bilde (PNG/JPG). Lagres lokalt i nettleser (demo).</div>
+                  </div>
+
+                  <button class="btn btn-success w-100" type="submit">Registrer</button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../src/js/main.js"></script>
+</body>
+</html>
