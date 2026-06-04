@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "sass --watch --load-path=node_modules src/scss:dist/css",
-    "build": "sass --no-source-map --load-path=node_modules src/scss:dist/css --style=compressed"
+    "build:css": "sass --no-source-map --load-path=node_modules src/scss:dist/css --style=compressed",
+    "build:js": "node -e \"const fs=require('fs');fs.mkdirSync('dist/js',{recursive:true});fs.copyFileSync('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js','dist/js/bootstrap.bundle.min.js')\"",
+    "build": "npm run build:css && npm run build:js"
   },
   "devDependencies": {
     "sass": "^1.77.0"
