@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 
-  if (location.pathname.endsWith('/profile/index.html') || location.href.endsWith('/public/profile/index.html') || location.href.endsWith('/profile/index.html')) {
+  if (/\/profile\/(index\.html)?$/.test(location.pathname)) {
     const username = getSession();
     if (!username){ window.location.href = "index.html"; return; }
     const users = loadUsers();
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
   }
 
-  if (location.pathname.endsWith('/feed/index.html') || location.href.endsWith('/public/feed/index.html') || location.href.endsWith('/feed/index.html')){
+  if (/\/feed\/(index\.html)?$/.test(location.pathname)){
     const sortSelect = document.getElementById('sortSelect');
     const searchInput = document.getElementById('searchInput');
     const searchForm = document.getElementById('searchForm');
