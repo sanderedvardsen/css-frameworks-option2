@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 
-  if (location.pathname.endsWith('/profile/index.html') || location.href.endsWith('/public/profile/index.html') || location.href.endsWith('/profile/index.html')) {
+  if (/\/profile\/(index\.html)?$/.test(location.pathname)) {
     const username = getSession();
     if (!username){ window.location.href = "index.html"; return; }
     const users = loadUsers();
@@ -139,14 +139,27 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
   }
 
-  if (location.pathname.endsWith('/feed/index.html') || location.href.endsWith('/public/feed/index.html') || location.href.endsWith('/feed/index.html')){
+  if (/\/feed\/(index\.html)?$/.test(location.pathname)){
     const sortSelect = document.getElementById('sortSelect');
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.getElementById('searchForm');
     let currentSort = (sortSelect && sortSelect.value) ? sortSelect.value : 'nyeste';
+    let currentQuery = '';
 
     function renderFeed(){
       const listRoot = document.querySelector('.list-group');
       if (!listRoot) return;
       let posts = loadPosts().slice();
+
+      // filtrer etter søketekst (tittel, tekst eller forfatter)
+      if (currentQuery) {
+        const q = currentQuery.toLowerCase();
+        posts = posts.filter(p =>
+          (p.title || '').toLowerCase().includes(q) ||
+          (p.text  || '').toLowerCase().includes(q) ||
+          (p.author|| '').toLowerCase().includes(q)
+        );
+      }
 
       // sorterer etter valgt verdi
       if (currentSort === 'nyeste') {
@@ -179,6 +192,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if (sortSelect) {
       sortSelect.addEventListener('change', (e)=>{
         currentSort = e.target.value;
+        renderFeed();
+      });
+    }
+
+    // søk i feeden (live-filtrering + submit)
+    if (searchInput) {
+      searchInput.addEventListener('input', (e)=>{
+        currentQuery = e.target.value.trim();
+        renderFeed();
+      });
+    }
+    if (searchForm) {
+      searchForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        currentQuery = (searchInput?.value || '').trim();
         renderFeed();
       });
     }

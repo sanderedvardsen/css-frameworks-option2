@@ -8,7 +8,7 @@ En enkel sosial-app-prototype laget med Bootstrap + Sass. Frontend-only demo: au
 2. `cd <repo>`
 3. `npm install`
 4. `npm run dev`   # Sass watch
-5. Åpne `public/index.html` i Live Server
+5. Åpne `public/index.html` i Live Server.
 
 
 
